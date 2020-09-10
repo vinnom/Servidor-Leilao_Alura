@@ -22,7 +22,7 @@ public class Leilao {
 	private final long id;
 	private final String descricao;
 	
-	@OneToMany(mappedBy = "leilao", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private final List<Lance> lances;
 
 	public Leilao(String descricao) {
@@ -41,7 +41,7 @@ public class Leilao {
 		}
 	}
 
-	private void valida(Lance lance) {
+	public void valida(Lance lance) {
 		validaLanceSemRepeticaoDoUsuario(lance);
 		validaQuantidadeMaximaDeLancesDeUmMesmoUsuario(lance);
 		validaValorMaiorQueAnterior(lance);
