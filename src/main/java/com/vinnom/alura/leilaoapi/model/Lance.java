@@ -31,6 +31,13 @@ public class Lance {
 	private final double valor;
 	private final String valorFormatado;
 	
+	public Lance() {
+		this.id = 0L;
+		this.usuario = null;
+		this.valor = 0.0;
+		this.valorFormatado = formata(valor);
+	}
+	
 	public Lance(
 			@NonNull Usuario usuario,
 			double valor) {

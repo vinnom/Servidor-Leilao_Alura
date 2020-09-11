@@ -1,6 +1,8 @@
 package com.vinnom.alura.leilaoapi.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.lang.NonNull;
@@ -9,10 +11,16 @@ import org.springframework.lang.NonNull;
 public class Usuario {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private final long id;
 	
 	@NonNull
 	private final String nome;
+	
+	public Usuario() {
+		this.id = 0L;
+		this.nome = "";
+	}
 
 	public Usuario(String nome) {
 		this.id = 0L;

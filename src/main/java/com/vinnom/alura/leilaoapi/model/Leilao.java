@@ -24,6 +24,12 @@ public class Leilao {
 	
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private final List<Lance> lances;
+	
+	public Leilao() {
+		this.id = 0L;
+		this.descricao = "";
+		this.lances = new ArrayList<>();
+	}
 
 	public Leilao(String descricao) {
 		this.id = 0L;

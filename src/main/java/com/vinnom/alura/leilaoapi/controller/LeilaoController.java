@@ -55,9 +55,10 @@ public class LeilaoController {
 		return ResponseEntity.ok(todosLeiloes);
 	}
 
-	@PostMapping({"form"})
+	@PostMapping("/form")
 	@NotNull
-	public ModelAndView novoLeilao(@NotNull Leilao leilao) {
+	public ModelAndView novoLeilao(@NotNull String descricao) {
+		Leilao leilao = new Leilao(descricao);
 		ResponseEntity.ok(service.salva(leilao));
 		return new ModelAndView("redirect:/");
 	}

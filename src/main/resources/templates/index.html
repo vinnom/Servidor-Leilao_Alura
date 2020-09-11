@@ -14,7 +14,7 @@
 </form>
 
 <div th:if="${!leiloes.isEmpty()}">
-    <h2>Todos os leil</h2>
+    <h2>Todos os leilões</h2>
     <div th:each="leilao : ${leiloes}">
         <p th:text="${leilao}"/>
     </div>
