@@ -23,8 +23,8 @@ public class LeilaoTestController{
 
    @PostMapping
    @Profile(TESTE)
-   public ResponseEntity<Leilao> novo(@RequestBody Leilao leilao){
-      Leilao leilaoSalvo = service.salva(leilao);
+   public ResponseEntity<Leilao> novo(@RequestBody String descricao){
+      Leilao leilaoSalvo = service.salva(new Leilao(descricao));
       return ResponseEntity.ok(leilaoSalvo);
    }
 }

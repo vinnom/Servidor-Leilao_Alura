@@ -70,9 +70,7 @@ Visando a flexibilidade de testes, no perfil de `teste` foram adicionados os seg
 - **POST** `/leilao` -> Recebe um objeto do tipo `Leilao` e devolve o mesmo leilão com o `id` que foi salvo, segue o modelo de requisição:
 
 ```json
-{
-	"descricao" : "Console"
-}
+'descriçãoDoLeilao'
 ```
 
 ### Limpando banco de dados
