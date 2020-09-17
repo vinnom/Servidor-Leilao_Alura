@@ -1,5 +1,7 @@
 package com.vinnom.alura.leilaoapi.controller;
 
+import static com.vinnom.alura.leilaoapi.controller.constante.LeilaoControllerConstantes.ERRO_GENERICO;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,7 @@ public class LeilaoController {
 					|| exception1 instanceof ValorMenorQueOAnteriorException
 					|| exception1 instanceof UsuarioDeuLancesSeguidosException
 					|| exception1 instanceof QuantidadeMaximaDeLancesException) ? e.getMessage()
-							: "Não foi possível propor o lance";
+							: ERRO_GENERICO;
 			responseEntity = ResponseEntity.badRequest().body(mensagemDeErro);
 		}
 		return responseEntity;
@@ -57,7 +59,7 @@ public class LeilaoController {
 
 	@PostMapping("/form")
 	@NotNull
-	public ModelAndView novoLeilao(@NotNull String descricao) {
+	public ModelAndView novo(@NotNull String descricao) {
 		Leilao leilao = new Leilao(descricao);
 		ResponseEntity.ok(service.salva(leilao));
 		return new ModelAndView("redirect:/");
